@@ -12,20 +12,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
 body { background: #000814; color: #ffffff; overflow-x: hidden; }
 :root {
---glacier-primary: #00E5FF;
---glacier-bright: #00F5FF;
---glacier-electric: #7DF9FF;
---glacier-ice: #E0FFFF;
---glacier-frost: #B0E0E6;
---glacier-arctic: #00B8D4;
---glacier-deep: #0097A7;
---glacier-bg: #000814;
---glacier-card: #001233;
---glacier-elevated: #001845;
---glacier-border: #023E8A;
---glacier-success: #00FFC8;
---glacier-error: #FF006E;
---glacier-warning: #FFBE0B;
+--glacier-primary: #00E5FF; --glacier-bright: #00F5FF; --glacier-electric: #7DF9FF;
+--glacier-ice: #E0FFFF; --glacier-frost: #B0E0E6; --glacier-arctic: #00B8D4;
+--glacier-deep: #0097A7; --glacier-bg: #000814; --glacier-card: #001233;
+--glacier-elevated: #001845; --glacier-border: #023E8A; --glacier-success: #00FFC8;
+--glacier-error: #FF006E; --glacier-warning: #FFBE0B;
 }
 .login-page { min-height: 100vh; background: radial-gradient(ellipse at center, #001845 0%, #000814 50%, #000000 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .login-page::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 229, 255, 0.2) 0%, rgba(125, 249, 255, 0.1) 30%, transparent 70%); animation: rotate 30s linear infinite; }
@@ -49,12 +40,6 @@ body { background: #000814; color: #ffffff; overflow-x: hidden; }
 .login-footer { text-align: center; margin-top: 2rem; color: #7DF9FF; font-size: 0.875rem; }
 .login-footer a { color: #00E5FF; text-decoration: none; font-weight: 600; text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 .login-footer a:hover { text-decoration: underline; color: #E0FFFF; }
-.gradient-bg { background: linear-gradient(to bottom, #001233, #000814); }
-.gradient-border { border: 2px solid rgba(0, 229, 255, 0.3); box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.05); }
-.hover-scale { transition: transform 0.2s ease-in-out; }
-.hover-scale:hover { transform: scale(1.02); }
-.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
 .sidebar { transition: width 0.3s ease-in-out; width: 14rem; min-width: 14rem; background: linear-gradient(180deg, #001233 0%, #000814 100%); border-right: 2px solid rgba(0, 229, 255, 0.2); box-shadow: inset -10px 0 30px rgba(0, 229, 255, 0.05); }
 .sidebar.collapsed { width: 4rem; min-width: 4rem; }
 .menu-item { transition: all 0.2s ease-in-out; border: 1px solid transparent; }
@@ -69,10 +54,8 @@ body { background: #000814; color: #ffffff; overflow-x: hidden; }
 .stat-card:hover { border-color: rgba(0, 229, 255, 0.8); box-shadow: 0 0 30px rgba(0, 229, 255, 0.5), 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(0, 229, 255, 0.08); transform: translateY(-2px); }
 .corner-dot { position: absolute; width: 8px; height: 8px; background: radial-gradient(circle, #E0FFFF, #00E5FF); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease; box-shadow: 0 0 10px #00E5FF, 0 0 20px #00F5FF; pointer-events: none; }
 .stat-card:hover .corner-dot { opacity: 1; animation: dotPulse 2s ease-in-out infinite; }
-.corner-dot.top-left { top: -4px; left: -4px; }
-.corner-dot.top-right { top: -4px; right: -4px; }
-.corner-dot.bottom-right { bottom: -4px; right: -4px; }
-.corner-dot.bottom-left { bottom: -4px; left: -4px; }
+.corner-dot.top-left { top: -4px; left: -4px; } .corner-dot.top-right { top: -4px; right: -4px; }
+.corner-dot.bottom-right { bottom: -4px; right: -4px; } .corner-dot.bottom-left { bottom: -4px; left: -4px; }
 @keyframes dotPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 10px #00E5FF, 0 0 20px #00F5FF; } 50% { transform: scale(1.4); box-shadow: 0 0 15px #E0FFFF, 0 0 30px #00E5FF; } }
 .border-line { position: absolute; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
 .stat-card:hover .border-line { opacity: 1; }
@@ -128,16 +111,6 @@ body { background: #000814; color: #ffffff; overflow-x: hidden; }
 .content-container { max-width: 100%; padding: 1rem; }
 .countdown-timer { font-family: 'Courier New', monospace; font-size: 1.1rem; font-weight: bold; color: #00FFC8; text-shadow: 0 0 15px rgba(0, 255, 200, 0.8), 0 0 25px rgba(0, 255, 200, 0.5); }
 .auto-claim-timer { font-family: 'Courier New', monospace; font-size: 1rem; font-weight: bold; color: #00E5FF; text-shadow: 0 0 15px rgba(0, 229, 255, 0.8), 0 0 25px rgba(0, 229, 255, 0.5); }
-@keyframes glowingBorder { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
-.glowing-border::before { content: ''; position: absolute; top: -3px; left: -3px; right: -3px; bottom: -3px; background: linear-gradient(45deg, #00E5FF, #E0FFFF, #7DF9FF, #00E5FF); background-size: 300% 300%; z-index: -1; border-radius: 26px; opacity: 0.8; filter: blur(2px); animation: glowingBorder 6s linear infinite; box-shadow: 0 0 30px rgba(0, 229, 255, 0.6); pointer-events: none; }
-@keyframes messageIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
-.message-animate { animation: messageIn 0.4s ease-out forwards; }
-.custom-scroll::-webkit-scrollbar { width: 6px; }
-.custom-scroll::-webkit-scrollbar-track { background: transparent; }
-.custom-scroll::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00E5FF, #00B8D4); border-radius: 3px; box-shadow: 0 0 5px rgba(0, 229, 255, 0.5); }
-.custom-scroll::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #00F5FF, #00E5FF); }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-.live-indicator { animation: blink 1.5s infinite; box-shadow: 0 0 10px currentColor; }
 .log-entry { color: #00FFC8; text-shadow: 0 0 5px rgba(0, 255, 200, 0.5); }
 .log-entry.auto-claim { color: #00E5FF; text-shadow: 0 0 8px rgba(0, 229, 255, 0.7); }
 .log-entry.pk-success { color: #7DF9FF; text-shadow: 0 0 10px rgba(125, 249, 255, 0.8); }
@@ -188,7 +161,6 @@ body { background: #000814; color: #ffffff; overflow-x: hidden; }
 .pk-highlight-new { animation: pkHighlight 3s ease-out; }
 @keyframes pkHighlight { 0% { background: rgba(0, 229, 255, 0.4); transform: scale(1.02); box-shadow: 0 0 30px rgba(0, 229, 255, 0.8); } 100% { background: transparent; transform: scale(1); } }
 .frost-text { color: #E0FFFF; text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.5), 0 0 30px rgba(125, 249, 255, 0.3); }
-.ice-glow { box-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 0 0 40px rgba(0, 229, 255, 0.3), inset 0 0 15px rgba(224, 255, 255, 0.1); }
 .validation-card { display: flex; flex-direction: column; justify-content: space-between; }
 .validation-bottom-section { margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(0, 229, 255, 0.15); }
 .bossx-ai-fab { position: fixed; bottom: 24px; right: 24px; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(145deg, #00E5FF, #00B8D4); border: 3px solid rgba(224, 255, 255, 0.6); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(0, 229, 255, 0.7), 0 0 60px rgba(0, 229, 255, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2); z-index: 9999; transition: all 0.3s ease; animation: fabPulse 3s ease-in-out infinite; }
@@ -566,6 +538,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </div>
 </div>
 </div>
+
 <!-- PRIVATE KEY PAGE -->
 <div id="private-key-page" class="page-content active">
 <div class="bg-gradient-to-r from-[#001233] via-[#000814] to-[#001233] border-2 border-cyan-300/30 rounded-xl p-6 mb-6" style="box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);">
@@ -683,7 +656,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </div>
 </div>
 </div>
-</div>
+
 <!-- DEPOSIT PAGE -->
 <div id="deposit-page" class="page-content">
 <div class="bg-gradient-to-r from-[#001233] via-[#000814] to-[#001233] border-2 border-cyan-400/30 rounded-xl p-6 mb-6" style="box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);">
@@ -788,6 +761,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </div>
 </div>
 </div>
+
 <!-- WITHDRAWAL PAGE -->
 <div id="withdrawal-page" class="page-content">
 <div class="bg-gradient-to-r from-[#001233] via-[#000814] to-[#001233] border-2 border-rose-500/30 rounded-xl p-6 mb-6" style="box-shadow: 0 0 30px rgba(255, 0, 110, 0.2);">
@@ -915,6 +889,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </div>
 </div>
 </div>
+
 <!-- EXCHANGE PAGE -->
 <div id="exchange-page" class="page-content exchange-bg">
 <div class="exchange-card p-4 mb-4">
@@ -1012,6 +987,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </div>
 </div>
 </div>
+
 <!-- P2P PAGE -->
 <div id="p2p-page" class="page-content exchange-bg">
 <div class="exchange-card p-6 mb-6">
@@ -1065,6 +1041,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 <div id="p2p-history-content" class="overflow-x-auto"></div>
 </div>
 </div>
+
 <!-- SOCIALFI PAGE -->
 <div id="socialfi-page" class="page-content">
 <div class="bg-gradient-to-r from-[#001233] via-[#000814] to-[#001233] border-2 border-cyan-400/30 rounded-xl p-6 mb-6" style="box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);">
@@ -1137,6 +1114,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 <div id="sfi-feed"></div>
 </div>
 </div>
+
 <!-- REFERRAL PAGE -->
 <div id="referral-page" class="page-content">
 <div class="p-6">
@@ -1161,6 +1139,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </div>
 </div>
 </div>
+
 <!-- TEAM DEVELOPER PAGE -->
 <div id="team-developer-page" class="page-content">
 <div class="p-6">
@@ -1215,6 +1194,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </div>
 </div>
 </div>
+
 <!-- SETTINGS PAGE -->
 <div id="settings-page" class="page-content">
 <div class="p-6">
@@ -1222,10 +1202,12 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 <p class="text-cyan-200">Fitur Settings akan segera hadir...</p>
 </div>
 </div>
+
 </div>
 </main>
 </div>
 </div>
+
 <!-- BOSSX AI AGENT -->
 <div id="bossx-ai-fab" class="bossx-ai-fab" onclick="toggleBossxAI()" title="BossX AI AGENT">
 <span class="bossx-ai-fab-icon">🤖</span>
@@ -1275,6 +1257,7 @@ Beli Access Key di menu <span class="text-cyan-400 font-semibold cursor-pointer 
 </button>
 </div>
 </div>
+
 <script>
 // ============ UTILITY FUNCTIONS ============
 function showSuccessMessage(message) {
@@ -1322,7 +1305,7 @@ setTimeout(() => {
 if (username === DEMO_CREDENTIALS.username && password === DEMO_CREDENTIALS.password) {
 localStorage.setItem('bossx_logged_in', 'true');
 localStorage.setItem('bossx_username', username);
-errorDiv.classList.remove('show();
+errorDiv.classList.remove('show');
 showSuccessMessage('Login berhasil! Selamat datang di BossX.');
 setTimeout(() => showMainApp(), 500);
 } else {
@@ -1840,7 +1823,9 @@ if (badgeEl) badgeEl.textContent = keys.length;
 function copyPrivateKey(code) {
 if (navigator.clipboard) {
 navigator.clipboard.writeText(code).then(() => showSuccessMessage(`Access Key disalin: ${code}`)).catch(() => fallbackCopyPK(code));
-} else fallbackCopyPK(code);
+} else {
+fallbackCopyPK(code);
+}
 }
 function fallbackCopyPK(text) {
 const textArea = document.createElement('textarea');
@@ -2778,186 +2763,42 @@ return div.innerHTML;
 // BOSSX AI AGENT - KNOWLEDGE BASE (35+ ENTRI)
 // ============================================
 const BOSSX_AI_KB = [
-  {
-    keywords: ['apa itu bossx', 'bossx itu apa', 'tentang bossx', 'pengertian bossx', 'bossx cryptocurrency', 'bossx token'],
-    question: 'Apa itu BossX?',
-    answer: '<strong>BossX</strong> adalah aset kripto (token) yang dibangun di jaringan <strong>TRON</strong> dengan standar <strong>TRC20</strong>. BossX dirancang sebagai token utama untuk ekosistem: transaksi internal, utilitas fitur aplikasi (SocialFi, Internal Market, P2P), serta mekanisme insentif berbasis aturan yang transparan.<br><br><strong>📊 Parameter Supply:</strong><br>• Jaringan: TRC20 (TRON)<br>• Total Supply: <strong>100.000.000 BOSSX</strong><br>• Genesis Mint: 1.000.000 BOSSX (1%)<br>• Reward Pool: 99.000.000 BOSSX (99%)'
-  },
-  {
-    keywords: ['jaringan bossx', 'blockchain bossx', 'tron bossx', 'trc20'],
-    question: 'BossX menggunakan jaringan apa?',
-    answer: 'BossX dibangun di atas jaringan <strong>TRON (TRC20)</strong>. TRON dipilih karena:<br><br>• <strong>Biaya transaksi rendah</strong> dibanding Ethereum<br>• <strong>Kecepatan tinggi</strong> untuk transaksi real-time<br>• <strong>Kompatibel</strong> dengan ekosistem DeFi TRON<br>• <strong>Skalabel</strong> untuk pertumbuhan ekosistem BossX'
-  },
-  {
-    keywords: ['website bossx', 'link bossx', 'bossx io', 'alamat website'],
-    question: 'Apa website resmi BossX?',
-    answer: 'Website resmi BossX adalah:<br><br>🌐 <strong>www.bossx.io</strong><br><br><strong>📧 Kontak:</strong><br>• Admin: admin@bossx.io<br>• Developer: dev@bossx.io<br><br>Selalu pastikan Anda mengakses website resmi untuk menghindari phishing!'
-  },
-  {
-    keywords: ['access key', 'apa itu access key', 'fungsi access key', 'masternode', 'private key'],
-    question: 'Apa itu Access Key?',
-    answer: '<strong>Access Key</strong> adalah kode digital unik yang dibentuk menggunakan prinsip kriptografi dan enkripsi ketat (mengadopsi standar <strong>STS - Standard Transfer Specification</strong>). Access Key berfungsi sebagai <strong>lisensi partisipasi</strong> dalam sistem distribusi reward BossX.<br><br><strong>⚠️ PENTING:</strong> Access Key BUKAN perangkat mining dan BUKAN validator TRON. Access Key adalah mekanisme <em>rule-based emissions</em> (distribusi reward berbasis aturan).<br><br><strong>🔑 Spesifikasi:</strong><br>• Kode kriptografis unik (sulit dipalsukan)<br>• Berlaku untuk 1x redeem/aktivasi (anti-reuse)<br>• Memiliki masa berlaku (countdown timer)<br>• Dapat divalidasi secara deterministik oleh sistem'
-  },
-  {
-    keywords: ['cara beli access key', 'beli access key', 'harga access key', 'minimal beli'],
-    question: 'Bagaimana cara membeli Access Key?',
-    answer: 'Untuk membeli Access Key:<br><br><strong>1.</strong> Deposit USDT/BOSSX ke akun Anda<br><strong>2.</strong> Beli BOSSX di Internal Market<br><strong>3.</strong> Gunakan saldo BOSSX untuk membeli Access Key<br><br><strong>💰 Harga & Ketentuan:</strong><br>• Minimal pembelian: <strong>$10</strong> (≈ 10 BOSSX, asumsi 1 BOSSX = 1 USDT)<br>• User bebas memilih nominal lebih besar<br>• Dapat membeli beberapa Access Key dalam 1 akun<br>• Setiap pembelian menghasilkan 1 Access Key unik<br><br><strong>💡 Tips:</strong> Semakin besar nilai Access Key, semakin besar reward yang dihasilkan!'
-  },
-  {
-    keywords: ['cara redeem access key', 'aktivasi access key', 'redeem key', 'cara aktivasi'],
-    question: 'Bagaimana cara redeem/aktivasi Access Key?',
-    answer: 'Setelah membeli Access Key, lakukan aktivasi:<br><br><strong>1.</strong> Sistem menerbitkan Access Key (kode kriptografis)<br><strong>2.</strong> <strong>Simpan kode tersebut dengan aman!</strong><br><strong>3.</strong> Masuk ke Dashboard → masukkan kode Access Key<br><strong>4.</strong> Klik "Redeem Now"<br><strong>5.</strong> Sistem memvalidasi: kode valid, belum terpakai, akun memenuhi syarat<br><strong>6.</strong> Jika lolos, status Access Key menjadi <strong>AKTIF</strong><br><br><strong>⚠️ Peringatan:</strong><br>• Access Key hanya bisa diredeem <strong>1 kali</strong><br>• Setelah redeem, kode hangus<br>• Jangan bagikan kode ke siapapun!'
-  },
-  {
-    keywords: ['power on', 'tombol power', 'cara aktifkan validasi', 'start validation'],
-    question: 'Apa itu tombol Power On?',
-    answer: 'Tombol <strong>Power On</strong> adalah aksi pengguna untuk memulai proses validasi running pada hari itu.<br><br><strong>📋 Cara Kerja:</strong><br>1. Setelah Access Key aktif, tekan tombol Power On<br>2. Sistem menjalankan validasi terus-menerus<br>3. Reward dihitung setiap detik<br>4. Setiap 1 menit, hasil validasi terkonfirmasi ke saldo Reward Validasi<br><br><strong>⏰ Aturan Penting:</strong><br>• Tekan Power On pada <strong>06:01 UTC</strong> setiap hari<br>• Jika terlambat, AccessKey dianggap tidak aktif selama periode keterlambatan<br>• Anda kehilangan reward sebesar durasi keterlambatan<br>• Timer 40.000.000 detik tetap berjalan meski terlambat'
-  },
-  {
-    keywords: ['durasi access key', 'masa berlaku', '40 juta detik', 'timer access key'],
-    question: 'Berapa lama masa berlaku Access Key?',
-    answer: 'Access Key memiliki durasi <strong>40.000.000 detik</strong> (sekitar <strong>463 hari</strong> atau ±15 bulan) sejak momen redeem/aktivasi.<br><br><strong>⏱️ Detail:</strong><br>• Timer mulai berjalan saat redeem berhasil<br>• Timer tetap berjalan meski Anda terlambat Power On<br>• Keterlambatan Power On mengurangi reward dan waktu efektif<br>• Setelah 40.000.000 detik, Access Key berakhir<br><br><strong>💡 Catatan:</strong> Parameter ini dapat berubah sesuai kebijakan final proyek.'
-  },
-  {
-    keywords: ['bagaimana reward bekerja', 'cara dapat reward', 'reward validasi', 'sistem reward', 'mekanisme reward'],
-    question: 'Bagaimana sistem reward BossX bekerja?',
-    answer: 'Sistem reward BossX menggunakan mekanisme <strong>akumulasi kontinu per detik</strong>:<br><br><strong>📊 Base Reward:</strong><br>• <strong>10% per bulan</strong> dari nilai pembelian Access Key (A)<br>• Tanpa pengembalian modal (principal)<br>• Dihitung sebagai akumulasi per detik<br><br><strong>⚙️ Cara Kerja:</strong><br>1. Access Key aktif + Power On → validasi berjalan<br>2. Reward dihitung setiap detik<br>3. Setiap 1 menit → Auto-Validation Claim ke saldo Reward Validasi<br>4. Reward terakumulasi sampai di-claim/withdraw<br><br><strong>💰 Contoh:</strong><br>• Access Key senilai 1.000 BOSSX<br>• Base reward bulanan: 100 BOSSX<br>• Rate per detik: ≈ 0.00003858 BOSSX/detik<br>• Jika bulan 30 hari (2.592.000 detik)'
-  },
-  {
-    keywords: ['auto claim', 'auto validation', 'klaim otomatis', '1 menit'],
-    question: 'Apa itu Auto-Validation Claim?',
-    answer: '<strong>Auto-Validation Claim</strong> adalah proses otomatis yang terjadi setiap <strong>1 menit</strong>:<br><br><strong>🔄 Proses:</strong><br>1. Selama validasi running, reward dihitung per detik<br>2. Setiap 1 menit, sistem mengkonsolidasikan hasil perhitungan<br>3. Hasil dikonfirmasi ke saldo <strong>Reward Validasi</strong> di dalam platform<br>4. Jika ada pembulatan, sisa pecahan dibawa ke menit berikutnya<br><br><strong>⚠️ PENTING:</strong><br>• Auto-claim per 1 menit adalah <strong>pencatatan saldo di dalam platform</strong><br>• BUKAN transfer on-chain setiap menit<br>• Transfer on-chain hanya terjadi saat claim/withdraw<br>• Ini untuk efisiensi biaya transaksi'
-  },
-  {
-    keywords: ['checkpoint', '06:00 utc', 'berhenti harian', 'auto stop'],
-    question: 'Mengapa validasi berhenti jam 06:00 UTC?',
-    answer: 'Validasi/reward berhenti setiap hari pada <strong>06:00 UTC</strong> untuk proses <strong>checkpoint</strong>.<br><br><strong>🎯 Tujuan Checkpoint:</strong><br>• Sinkronisasi data<br>• Validasi status AccessKey<br>• Mitigasi penyalahgunaan (anti-abuse)<br>• Pembaruan parameter jika diperlukan<br><br><strong>⏰ Aturan:</strong><br>• Validasi berhenti: 06:00 UTC<br>• Power On kembali: <strong>06:01 UTC</strong><br>• Jika terlambat Power On, kehilangan reward selama durasi keterlambatan<br><br><strong>💡 Rekomendasi:</strong> Set alarm/pengingat untuk Power On tepat waktu!'
-  },
-  {
-    keywords: ['dari mana reward', 'sumber reward', 'reward pool', '99 juta'],
-    question: 'Dari mana reward BossX berasal?',
-    answer: 'Reward BossX berasal dari <strong>Reward Pool</strong> sebesar <strong>99.000.000 BOSSX</strong> (99% dari total supply).<br><br><strong>📦 Detail Reward Pool:</strong><br>• Total Supply: 100.000.000 BOSSX<br>• Genesis Mint (sudah beredar): 1.000.000 BOSSX (1%)<br>• Reward Pool (belum beredar): 99.000.000 BOSSX (99%)<br><br><strong>🔄 Mekanisme Emisi:</strong><br>• Token dilepas <strong>bertahap</strong> mengikuti reward yang terbentuk dari validasi pengguna aktif<br>• Tidak ada tanggal pasti kapan 99 juta BOSSX habis<br>• Kecepatan distribusi bergantung pada: jumlah AccessKey eligible, nilai pembelian, kedisiplinan Power On, kebijakan proyek<br><br><strong>💡 Catatan:</strong> "Per detik" mengacu pada perhitungan akumulasi, bukan transfer on-chain per detik.'
-  },
-  {
-    keywords: ['klaim reward', 'cara claim', 'withdraw reward', 'tarik reward'],
-    question: 'Bagaimana cara claim reward?',
-    answer: 'Ada beberapa cara untuk mengklaim reward:<br><br><strong>1. Auto-Validation Claim (Otomatis):</strong><br>• Terjadi setiap 1 menit<br>• Masuk ke saldo Reward Validasi di platform<br><br><strong>2. Internal Market:</strong><br>• Jual reward BOSSX di Internal Market<br>• Dapat USDT atau BOSSX lain<br><br><strong>3. Withdraw ke Wallet On-chain:</strong><br>• Buka menu Withdrawal<br>• Masukkan alamat wallet TRC20<br>• Token berpindah ke wallet pribadi Anda<br><br><strong>⚠️ Catatan:</strong><br>• Batas minimum interval withdraw (mis. 1x per hari)<br>• Fee withdraw kecil untuk treasury<br>• Periksa alamat wallet sebelum konfirmasi!'
-  },
-  {
-    keywords: ['tokenomics', 'alokasi token', 'distribusi token', 'supply bossx'],
-    question: 'Bagaimana tokenomics BossX?',
-    answer: '<strong>📊 Total Supply: 100.000.000 BOSSX</strong><br><br><strong>A. Genesis Mint (1%) - 1.000.000 BOSSX:</strong><br>• Liquidity Bootstrap: 250.000 (0.25%) - Lock 6-12 bulan<br>• Treasury Operasional: 200.000 (0.20%) - Vesting 12 bulan<br>• Development & Security: 200.000 (0.20%) - Vesting 18-24 bulan<br>• Team Allocation: 200.000 (0.20%) - Cliff 6 bulan + vesting 36 bulan<br>• Marketing & Community: 100.000 (0.10%) - Release bertahap 6-12 bulan<br>• Advisors/Partners: 50.000 (0.05%) - Cliff 3 bulan + vesting 12 bulan<br><br><strong>B. Reward Pool (99%) - 99.000.000 BOSSX:</strong><br>• AccessKey Base Reward Emission<br>• Emisi dinamis sesuai parameter AccessKey<br><br><strong>💎 Prinsip:</strong> Fairness, kontrol emisi, keberlanjutan jangka panjang.'
-  },
-  {
-    keywords: ['alokasi dana', 'flow dana', 'pembelian access key', 'dana pembelian'],
-    question: 'Ke mana dana pembelian Access Key dialokasikan?',
-    answer: 'Dana dari pembelian Access Key dialokasikan untuk mendukung keberlanjutan ekosistem:<br><br><strong>💰 Alokasi Dana Pembelian Access Key:</strong><br><br>• <strong>50% - Trading Bot:</strong><br>  Modal dikelola robot trading. Profit dapat dibagikan sebagai bonus variabel.<br><br>• <strong>25% - Liquidity:</strong><br>  Menambah liquidity BOSSX untuk stabilitas pasar.<br><br>• <strong>5% - Charity:</strong><br>  Program sosial dengan transparansi & laporan.<br><br>• <strong>20% - Dev/Ops:</strong><br>  Pengembangan, operasional, audit, dan kebutuhan proyek.<br><br><strong>💡 Catatan:</strong> Selain base reward dari reward pool, alokasi ini menambah pilar keberlanjutan ekosistem.'
-  },
-  {
-    keywords: ['vesting', 'lock up', 'kapan token cair', 'tim vesting'],
-    question: 'Bagaimana sistem vesting dan lock-up?',
-    answer: 'Untuk menjaga kepercayaan publik dan mengurangi risiko tekanan jual, setiap kategori Genesis Mint mengikuti aturan vesting/lock-up:<br><br><strong>🔒 Vesting Schedule:</strong><br><br>• <strong>Liquidity Bootstrap:</strong> Lock minimum 6-12 bulan<br>• <strong>Treasury Operasional:</strong> Vesting linear 12 bulan<br>• <strong>Development & Security:</strong> Vesting linear 18-24 bulan<br>• <strong>Team Allocation:</strong> Cliff 6 bulan + vesting linear 36 bulan<br>• <strong>Marketing & Community:</strong> Release bertahap 6-12 bulan<br>• <strong>Advisors/Partners:</strong> Cliff 3 bulan + vesting linear 12 bulan<br><br><strong>💎 Tujuan:</strong> Memastikan insentif tim selaras dengan eksekusi jangka panjang dan mencegah pelepasan token dalam waktu singkat.'
-  },
-  {
-    keywords: ['internal market', 'marketplace', 'tempat trading', 'jual beli bossx'],
-    question: 'Apa itu Internal Market?',
-    answer: '<strong>Internal Market</strong> adalah modul perdagangan internal untuk memfasilitasi transaksi jual-beli aset di dalam ekosistem BossX.<br><br><strong>📊 Fase Awal:</strong><br>• Pair: <strong>BOSSX/USDT</strong> (satu-satunya pair)<br>• Maker fee: 0.5% per transaksi<br>• Taker fee: 0.5% per transaksi<br>• Fee dipotong dari aset yang diterima<br>• Alokasi fee: ke treasury proyek<br><br><strong>✨ Fitur:</strong><br>• Order book real-time<br>• Chart harga (TradingView untuk pair eksternal)<br>• History transaksi lengkap<br>• Terintegrasi dengan wallet BossX<br><br><strong>💡 Catatan:</strong> Pembatasan pair dilakukan untuk menjaga fokus pengembangan dan kontrol risiko di tahap awal.'
-  },
-  {
-    keywords: ['p2p', 'peer to peer', 'transfer bossx', 'kirim ke teman'],
-    question: 'Bagaimana cara transfer P2P?',
-    answer: 'Fitur <strong>Peer to Peer (P2P)</strong> memungkinkan transfer BOSSX antar sesama pengguna di dalam platform.<br><br><strong>📤 Cara Transfer:</strong><br>1. Buka menu "Peer to Peer"<br>2. Masukkan username penerima (format: @username)<br>3. Masukkan jumlah BOSSX (minimal 1 BOSSX)<br>4. Klik "Kirim BossX"<br><br><strong>✅ Fitur:</strong><br>• Transfer instan antar user BossX<br>• <strong>Gratis</strong> (no transfer fee) di fase awal<br>• History transfer tercatat lengkap<br>• Statistik total dikirim & diterima<br><br><strong>⚠️ Pengendalian Risiko:</strong><br>• Batas nominal/limit harian<br>• Verifikasi akun (bila diperlukan)<br>• Pemantauan pola transaksi tidak wajar'
-  },
-  {
-    keywords: ['socialfi', 'sosial', 'media sosial', 'fitur sosial', 'bossx social'],
-    question: 'Apa itu SocialFi BossX?',
-    answer: '<strong>SocialFi BossX</strong> adalah platform sosial eksklusif untuk holder token BossX, berfungsi sebagai ruang komunitas dan diskusi.<br><br><strong>💎 Akses Berlangganan:</strong><br>• User aktif ekosistem BossX: <strong>$1/bulan</strong><br>• Non-user aktif: <strong>$25/bulan</strong><br><br><strong>✨ Fitur Utama:</strong><br>• Posting konten (teks, gambar, video)<br>• Like & komentar<br>• Gift Emoji (menggunakan BOSSX)<br>• Feed komunitas yang aktif<br><br><strong>⚠️ Fase Awal:</strong><br>• TIDAK ADA reward untuk posting/like/komentar<br>• Fokus: membangun komunitas sehat & diskusi relevan<br>• Moderasi ketat untuk anti-spam<br><br><strong>📍 Lokasi:</strong> Menu "SocialFi" di sidebar'
-  },
-  {
-    keywords: ['7 program', 'program bossx', 'tap to earn', 'share to earn', 'play to earn'],
-    question: 'Apa saja 7 program terbaik BossX?',
-    answer: 'BossX memiliki <strong>7 Program Utama</strong>:<br><br><strong>1. Tap-to-Earn:</strong> Aktivitas dalam aplikasi untuk meningkatkan engagement<br><strong>2. Share-to-Earn (Affiliate):</strong> Program referral untuk pertumbuhan komunitas<br><strong>3. Play-to-Earn:</strong> Game/NFT/metaverse (draft)<br><strong>4. Internal Market:</strong> Tempat transaksi jual-beli BOSSX + P2P<br><strong>5. Cryptocurrency:</strong> Ekosistem aset BOSSX Token + BOSSX Point<br><strong>6. AI (Artificial Intelligence):</strong> Fitur berbasis AI untuk edukasi & otomasi<br><strong>7. BOSSX Hot Wallet:</strong> Dompet internal/eksternal untuk transaksi harian<br><br><strong>💡 Catatan:</strong> Program-program ini dirancang untuk mendorong utilitas token di luar spekulasi.'
-  },
-  {
-    keywords: ['referral', 'kode referral', 'ajak teman', 'komisi referral', 'bonus referral'],
-    question: 'Bagaimana sistem referral BossX?',
-    answer: 'Program <strong>Referral BossX</strong> memungkinkan Anda mendapatkan bonus dengan mengajak pengguna lain bergabung.<br><br><strong>🎯 Cara Kerja:</strong><br>1. Dapatkan kode referral unik Anda<br>2. Bagikan kode ke teman/komunitas<br>3. Teman daftar menggunakan link/kode referral Anda<br>4. Teman membeli Access Key<br>5. Anda mendapat bonus referral!<br><br><strong>💰 Bonus Referral:</strong><br>• Besaran: <strong>5%</strong> dari jumlah pembelian Access Key<br>• Mata uang: dibayar dalam <strong>BOSSX</strong><br>• Pembelian berulang: tetap mendapat 5% bonus<br><br><strong>⚠️ Ketentuan:</strong><br>• Bonus hanya diberikan jika referred user membeli Access Key<br>• Platform dapat menerapkan pencegahan multi-akun & anti-penyalahgunaan'
-  },
-  {
-    keywords: ['cara deposit', 'deposit bagaimana', 'deposit usdt', 'deposit bossx', 'cara top up'],
-    question: 'Bagaimana cara deposit?',
-    answer: 'Untuk melakukan deposit ke akun BossX:<br><br><strong>1.</strong> Buka menu <strong>"Deposit"</strong> di sidebar<br><strong>2.</strong> Pilih currency: <strong>USDT</strong> atau <strong>BOSSX</strong><br><strong>3.</strong> Copy alamat wallet yang ditampilkan<br><strong>4.</strong> Kirim crypto dari wallet eksternal Anda<br><br><strong>⚠️ Penting:</strong><br>• USDT: Network <strong>TRC20 (TRON)</strong>, minimal deposit <strong>10 USDT</strong><br>• BOSSX: Network internal, minimal deposit <strong>1 BOSSX</strong><br>• Deposit dikonfirmasi setelah 1 konfirmasi network<br>• Pastikan alamat wallet benar sebelum kirim!<br><br><strong>💡 Tips:</strong> Gunakan QR Code untuk kemudahan.'
-  },
-  {
-    keywords: ['cara withdrawal', 'withdrawal bagaimana', 'tarik dana', 'withdraw usdt', 'withdraw bossx'],
-    question: 'Bagaimana cara withdrawal?',
-    answer: 'Untuk menarik dana dari akun BossX:<br><br><strong>1.</strong> Buka menu <strong>"Withdrawal"</strong><br><strong>2.</strong> Pilih currency (USDT/BOSSX)<br><strong>3.</strong> Pilih network:<br>  • USDT: <strong>TRC20</strong> atau <strong>BEP20</strong><br>  • BOSSX: <strong>TRC20</strong><br><strong>4.</strong> Masukkan alamat wallet tujuan<br><strong>5.</strong> Masukkan jumlah withdrawal<br><strong>6.</strong> Klik "Submit Withdrawal"<br><br><strong>💰 Fee & Minimal:</strong><br>• USDT: Fee <strong>1 USDT</strong>, minimal <strong>10 USDT</strong><br>• BOSSX: Fee <strong>0.1 BOSSX</strong>, minimal <strong>1 BOSSX</strong><br><br><strong>⏱️ Proses:</strong> 1-24 jam setelah submit<br><br><strong>⚠️ Perhatian:</strong> Periksa kembali alamat tujuan sebelum konfirmasi!'
-  },
-  {
-    keywords: ['team developer', 'siapa team', 'tim developer', 'founder', 'ceo bossx', 'tim bossx'],
-    question: 'Siapa team developer BossX?',
-    answer: 'Tim di balik BossX Crypto Exchange Platform:<br><br><strong>👑 Fery Muliawan</strong> — CEO (Chief Executive Officer)<br>Pendiri dan visioner BossX<br><br><strong>💰 Mr.Ramadhan</strong> — CFO (Chief Financial Officer)<br>Mengawasi operasi harian & keuangan<br><br><strong>📊 Michael Johnson</strong> — Manager<br>Mengatur tim operasional<br><br><strong>💻 Lee</strong> — CTO (Chief Technology Officer)<br>Infrastruktur teknis & keamanan<br><br><strong>📝 Emily Brown</strong> — Secretary<br>Administrasi & komunikasi<br><br><strong>💡 Visi Tim:</strong> Membangun ekosistem crypto yang transparan, terukur, dan berkelanjutan.'
-  },
-  {
-    keywords: ['roadmap', 'rencana pengembangan', 'milestone', 'timeline bossx'],
-    question: 'Bagaimana roadmap BossX?',
-    answer: '<strong>🗺️ Roadmap BossX:</strong><br><br><strong>Q1 2025:</strong> Konsep proyek, Whitepaper v1.0, kanal sosial<br><strong>Q2 2025:</strong> Pengembangan token TRC20, modul AccessKey, website beta<br><strong>Q3 2025:</strong> Beta app, internal market, explorer & hot wallet<br><strong>Q4 2025:</strong> Growth, audit CertiK, listing agregator (CMC/CoinGecko)<br><strong>Q1 2026:</strong> Finalisasi Whitepaper v2.0, testnet publik, desain multi-chain<br><strong>Q2 2026:</strong> Launch mainnet, listing DEX SunSwap, program utama<br><strong>Q4 2026:</strong> Scale, audit lanjutan, listing CEX preparation<br><strong>Q2 2027:</strong> Compliance, listing CEX tier 1/tier 2<br><strong>Q3-Q4 2027:</strong> Product expansion, ekspansi global<br><br><strong>💡 Catatan:</strong> Roadmap dapat berubah sesuai perkembangan proyek.'
-  },
-  {
-    keywords: ['keamanan', 'risiko', 'mitigasi', 'aman tidak', 'audit'],
-    question: 'Bagaimana keamanan dan mitigasi risiko BossX?',
-    answer: '<strong>🔒 Risiko Utama:</strong><br>1. Risiko ekonomi: emisi terlalu tinggi → inflasi<br>2. Risiko konsentrasi: whale membeli banyak AccessKey<br>3. Risiko manipulasi: redeem/power-on/claim disalahgunakan<br>4. Risiko smart contract: bug pada modul reward/registry<br>5. Risiko legal/regulasi: program reward bisa ditafsir sebagai produk investasi<br><br><strong>🛡️ Mitigasi:</strong><br>• Jadwal emisi menurun (decay/halving)<br>• Limit AccessKey per wallet / tier dengan kurva biaya<br>• Audit smart contract & bug bounty<br>• Pemisahan treasury + multi-sig<br>• Publikasi parameter emisi + changelog<br>• Dashboard publik: total AccessKey aktif, emisi harian, total reward<br><br><strong>💡 Transparansi:</strong> Audit sebelum rilis dan audit ulang setelah perubahan besar.'
-  },
-  {
-    keywords: ['verifikasi kepemilikan', 'hybrid verification', 'sts standard'],
-    question: 'Bagaimana verifikasi kepemilikan Access Key?',
-    answer: 'Verifikasi kepemilikan Access Key dilakukan secara <strong>hybrid</strong> untuk menjaga integritas sistem:<br><br><strong>🔐 3 Lapis Verifikasi:</strong><br><br><strong>1. Validasi kode AccessKey saat redeem:</strong><br>• Kode valid, sesuai format/aturan<br>• Belum pernah digunakan<br><br><strong>2. Pembuktian kontrol wallet:</strong><br>• Tanda tangan (signature) atas pesan redeem<br>• Kombinasi: hash AccessKey + alamat wallet + nonce<br>• Hanya pemilik wallet sah yang bisa aktivasi<br><br><strong>3. Auditability:</strong><br>• Publikasi hash/Merkle root harian<br>• Data ringkas (agregat AccessKey aktif, aktivitas klaim)<br>• Untuk audit tanpa membuka detail kode AccessKey<br><br><strong>💡 Standar:</strong> Mengadopsi prinsip <strong>STS (Standard Transfer Specification)</strong> - standar internasional terbuka.'
-  },
-  {
-    keywords: ['governance', 'tata kelola', 'keputusan', 'perubahan parameter'],
-    question: 'Bagaimana governance BossX?',
-    answer: '<strong>🏛️ Governance BossX:</strong><br><br><strong>Fase Awal:</strong><br>• Terpusat (tim developer)<br>• Transparansi penuh<br>• Pengumuman perubahan parameter<br><br><strong>Fase Lanjut:</strong><br>• Multi-sig komunitas<br>• Voting (bila dipilih)<br><br><strong>📋 Contoh Kebijakan:</strong><br>• Perubahan emisi maksimal 1x per bulan<br>• Pengumuman minimal 7 hari sebelum perubahan<br>• Perubahan fee internal market dibatasi rentang tertentu<br>• Setiap perubahan besar disertai laporan dampak (simulasi)<br><br><strong>💡 Prinsip:</strong> Keputusan transparan, terukur, dan dapat dipertanggungjawabkan.'
-  },
-  {
-    keywords: ['apakah reward transfer setiap detik', 'reward per detik', 'transfer on chain'],
-    question: 'Apakah reward ditransfer setiap detik?',
-    answer: '<strong>TIDAK.</strong> Transfer on-chain setiap detik tidak efisien.<br><br><strong>✅ Yang terjadi setiap detik:</strong><br>• Perhitungan akumulasi reward<br>• Pencatatan di dalam sistem platform<br><br><strong>✅ Kapan token berpindah?</strong><br>• Saat klaim/withdraw<br>• Nilainya dihitung berdasarkan durasi (detik) yang telah berlalu<br><br><strong>💡 Analogi:</strong> Seperti tabungan bank yang menghitung bunga per detik, tetapi penarikan dilakukan saat Anda butuh.<br><br><strong>⚙️ Auto-Validation Claim:</strong><br>• Setiap 1 menit → konsolidasi ke saldo Reward Validasi<br>• Ini pencatatan internal, bukan transfer on-chain'
-  },
-  {
-    keywords: ['apakah bossx mining', 'mining bossx', 'staking bossx'],
-    question: 'Apakah BossX menggunakan mining atau staking?',
-    answer: '<strong>BUKAN mining tradisional dan BUKAN staking pasif konvensional.</strong><br><br><strong>❌ BossX BUKAN:</strong><br>• Mining tradisional (butuh GPU/ASIC, listrik)<br>• Validator TRON<br>• Staking pasif yang kurang intuitif<br><br><strong>✅ BossX ADALAH:</strong><br>• Mekanisme <strong>rule-based emissions</strong><br>• Distribusi reward berbasis aturan<br>• Lebih mudah diakses (tanpa hardware/listrik)<br>• Lebih terukur & transparan<br><br><strong>💡 Konsep:</strong><br>• Beli token → Beli AccessKey → Redeem → Power On → Akumulasi → Claim/Withdraw<br>• Alur yang jelas dan dapat dipantau<br>• Reward dihitung sebagai akumulasi kontinu per detik'
-  },
-  {
-    keywords: ['login', 'cara login', 'masuk akun', 'akun demo', 'password'],
-    question: 'Bagaimana cara login?',
-    answer: 'Untuk login ke BossX Masternode:<br><br><strong>🔐 Demo Credentials:</strong><br>• Username: <code>admin</code><br>• Password: <code>admin123</code><br><br><strong>📝 Langkah:</strong><br>1. Buka halaman login BossX<br>2. Masukkan username & password<br>3. Klik "Masuk"<br>4. Anda akan diarahkan ke Dashboard<br><br><strong>💾 Session:</strong> Login tersimpan di browser (localStorage), jadi Anda tidak perlu login ulang setiap kali membuka website.<br><br><strong>⚠️ Keamanan:</strong> Jangan bagikan kredensial Anda ke siapapun!'
-  },
-  {
-    keywords: ['disclaimer', 'penafian', 'nasihat investasi', 'risiko kripto'],
-    question: 'Apa disclaimer BossX?',
-    answer: '<strong>⚠️ DISCLAIMER PENTING:</strong><br><br>Dokumen whitepaper BossX <strong>BUKAN</strong> nasihat investasi, hukum, atau pajak. Semua informasi disediakan untuk tujuan edukasi dan diskusi.<br><br><strong>🔴 Risiko Kripto:</strong><br>• Cryptocurrency memiliki risiko tinggi<br>• Harga dapat berfluktuasi drastis<br>• Parameter tokenomics dapat berubah<br>• Lakukan riset mandiri (DYOR)<br>• Konsultasi profesional sebelum mengambil keputusan<br><br><strong>💡 Prinsip:</strong><br>• Investasikan hanya uang yang siap Anda risikokan<br>• Pahami mekanisme sebelum berpartisipasi<br>• Jangan FOMO (Fear Of Missing Out)<br><br><strong>📧 Kontak:</strong> admin@bossx.io untuk pertanyaan lebih lanjut.'
-  },
-  {
-    keywords: ['tier access key', 'basic pro elite', 'bobot access key'],
-    question: 'Apakah ada tier Access Key?',
-    answer: '<strong>Ya (Opsional/Rencana):</strong> Access Key dapat memiliki tier dengan bobot berbeda untuk mencegah konsentrasi kepemilikan dan emisi tidak terkendali.<br><br><strong>📊 Contoh Ilustrasi (bukan final):</strong><br>• <strong>AccessKey Basic:</strong> bobot 1x<br>• <strong>AccessKey Pro:</strong> bobot 3x<br>• <strong>AccessKey Elite:</strong> bobot 8x<br><br><strong>💡 Cara Kerja:</strong><br>• Pembagian reward tetap proporsional terhadap kontribusi (harga/tier)<br>• Tidak mengubah emisi total<br>• Perlu dipadukan dengan batas supply AccessKey<br><br><strong>⚠️ Catatan:</strong> Desain tier masih dalam tahap perencanaan dan dapat berubah sesuai kebijakan final proyek.'
-  },
-  {
-    keywords: ['trading bot', 'robot trading', 'bonus trading', 'profit bot'],
-    question: 'Apa itu Trading Bot BossX?',
-    answer: '<strong>Trading Bot</strong> adalah salah satu pilar keberlanjutan ekosistem BossX.<br><br><strong>🤖 Konsep:</strong><br>• 50% dana pembelian Access Key dialokasikan untuk modal trading bot<br>• Bot dikelola secara profesional<br>• Profit dari trading dapat dibagikan sebagai <strong>bonus variabel</strong> kepada pengguna<br><br><strong>💰 Sumber Insentif:</strong><br>1. <strong>Base reward</strong> dari reward pool (emisi token)<br>2. <strong>Bonus variabel</strong> dari profit robot trading (non-emisi)<br><br><strong>📊 Transparansi:</strong><br>• Laporan profit/loss trading bot akan dipublikasikan<br>• Skema pembagian bonus sesuai kebijakan proyek<br><br><strong>💡 Tujuan:</strong> Mengurangi tekanan jual dan meningkatkan daya tahan ekonomi ekosistem.'
-  },
-  {
-    keywords: ['charity', 'amal', 'program sosial', 'donasi'],
-    question: 'Apakah BossX memiliki program charity?',
-    answer: '<strong>Ya!</strong> BossX mengalokasikan <strong>5%</strong> dari dana pembelian Access Key untuk program charity.<br><br><strong>💝 Program Charity:</strong><br>• Alokasi: 5% dari dana pembelian Access Key<br>• Fokus: Program sosial<br>• Transparansi: Laporan penggunaan dana dipublikasikan<br><br><strong>🎯 Visi:</strong><br>• Memberikan dampak positif bagi masyarakat<br>• Membangun ekosistem yang tidak hanya profit-oriented<br>• Kontribusi nyata untuk komunitas<br><br><strong>💡 Catatan:</strong> Detail program charity akan diumumkan melalui kanal resmi BossX.'
-  },
-  {
-    keywords: ['multi chain', 'ekspansi', 'future plan', 'rencana masa depan'],
-    question: 'Apakah BossX akan ekspansi ke blockchain lain?',
-    answer: '<strong>Ya!</strong> BossX memiliki rencana ekspansi multi-chain.<br><br><strong>🗺️ Roadmap Ekspansi:</strong><br>• <strong>Q1 2026:</strong> Desain multi-chain<br>• <strong>Q4 2026:</strong> Ekspansi multi-chain<br>• <strong>Q3-Q4 2027:</strong> Ekspansi global ke market baru<br><br><strong>💡 Tujuan:</strong><br>• Meningkatkan aksesibilitas<br>• Diversifikasi risiko<br>• Memperluas ekosistem BossX<br>• Integrasi dengan blockchain populer lain<br><br><strong>⚠️ Catatan:</strong> Saat ini BossX masih fokus di jaringan TRON (TRC20). Ekspansi multi-chain akan diumumkan secara resmi.'
-  }
+  { keywords: ['apa itu bossx', 'bossx itu apa', 'tentang bossx', 'pengertian bossx', 'bossx cryptocurrency', 'bossx token'], question: 'Apa itu BossX?', answer: '<strong>BossX</strong> adalah aset kripto (token) yang dibangun di jaringan <strong>TRON</strong> dengan standar <strong>TRC20</strong>. BossX dirancang sebagai token utama untuk ekosistem: transaksi internal, utilitas fitur aplikasi (SocialFi, Internal Market, P2P), serta mekanisme insentif berbasis aturan yang transparan.<br><br><strong>📊 Parameter Supply:</strong><br>• Jaringan: TRC20 (TRON)<br>• Total Supply: <strong>100.000.000 BOSSX</strong><br>• Genesis Mint: 1.000.000 BOSSX (1%)<br>• Reward Pool: 99.000.000 BOSSX (99%)' },
+  { keywords: ['jaringan bossx', 'blockchain bossx', 'tron bossx', 'trc20'], question: 'BossX menggunakan jaringan apa?', answer: 'BossX dibangun di atas jaringan <strong>TRON (TRC20)</strong>. TRON dipilih karena:<br><br>• <strong>Biaya transaksi rendah</strong> dibanding Ethereum<br>• <strong>Kecepatan tinggi</strong> untuk transaksi real-time<br>• <strong>Kompatibel</strong> dengan ekosistem DeFi TRON<br>• <strong>Skalabel</strong> untuk pertumbuhan ekosistem BossX' },
+  { keywords: ['website bossx', 'link bossx', 'bossx io', 'alamat website'], question: 'Apa website resmi BossX?', answer: 'Website resmi BossX adalah:<br><br>🌐 <strong>www.bossx.io</strong><br><br><strong>📧 Kontak:</strong><br>• Admin: admin@bossx.io<br>• Developer: dev@bossx.io<br><br>Selalu pastikan Anda mengakses website resmi untuk menghindari phishing!' },
+  { keywords: ['access key', 'apa itu access key', 'fungsi access key', 'masternode', 'private key'], question: 'Apa itu Access Key?', answer: '<strong>Access Key</strong> adalah kode digital unik yang dibentuk menggunakan prinsip kriptografi dan enkripsi ketat (mengadopsi standar <strong>STS - Standard Transfer Specification</strong>). Access Key berfungsi sebagai <strong>lisensi partisipasi</strong> dalam sistem distribusi reward BossX.<br><br><strong>⚠️ PENTING:</strong> Access Key BUKAN perangkat mining dan BUKAN validator TRON. Access Key adalah mekanisme <em>rule-based emissions</em> (distribusi reward berbasis aturan).<br><br><strong>🔑 Spesifikasi:</strong><br>• Kode kriptografis unik (sulit dipalsukan)<br>• Berlaku untuk 1x redeem/aktivasi (anti-reuse)<br>• Memiliki masa berlaku (countdown timer)<br>• Dapat divalidasi secara deterministik oleh sistem' },
+  { keywords: ['cara beli access key', 'beli access key', 'harga access key', 'minimal beli'], question: 'Bagaimana cara membeli Access Key?', answer: 'Untuk membeli Access Key:<br><br><strong>1.</strong> Deposit USDT/BOSSX ke akun Anda<br><strong>2.</strong> Beli BOSSX di Internal Market<br><strong>3.</strong> Gunakan saldo BOSSX untuk membeli Access Key<br><br><strong>💰 Harga & Ketentuan:</strong><br>• Minimal pembelian: <strong>$10</strong> (≈ 10 BOSSX, asumsi 1 BOSSX = 1 USDT)<br>• User bebas memilih nominal lebih besar<br>• Dapat membeli beberapa Access Key dalam 1 akun<br>• Setiap pembelian menghasilkan 1 Access Key unik<br><br><strong>💡 Tips:</strong> Semakin besar nilai Access Key, semakin besar reward yang dihasilkan!' },
+  { keywords: ['cara redeem access key', 'aktivasi access key', 'redeem key', 'cara aktivasi'], question: 'Bagaimana cara redeem/aktivasi Access Key?', answer: 'Setelah membeli Access Key, lakukan aktivasi:<br><br><strong>1.</strong> Sistem menerbitkan Access Key (kode kriptografis)<br><strong>2.</strong> <strong>Simpan kode tersebut dengan aman!</strong><br><strong>3.</strong> Masuk ke Dashboard → masukkan kode Access Key<br><strong>4.</strong> Klik "Redeem Now"<br><strong>5.</strong> Sistem memvalidasi: kode valid, belum terpakai, akun memenuhi syarat<br><strong>6.</strong> Jika lolos, status Access Key menjadi <strong>AKTIF</strong><br><br><strong>⚠️ Peringatan:</strong><br>• Access Key hanya bisa diredeem <strong>1 kali</strong><br>• Setelah redeem, kode hangus<br>• Jangan bagikan kode ke siapapun!' },
+  { keywords: ['power on', 'tombol power', 'cara aktifkan validasi', 'start validation'], question: 'Apa itu tombol Power On?', answer: 'Tombol <strong>Power On</strong> adalah aksi pengguna untuk memulai proses validasi running pada hari itu.<br><br><strong>📋 Cara Kerja:</strong><br>1. Setelah Access Key aktif, tekan tombol Power On<br>2. Sistem menjalankan validasi terus-menerus<br>3. Reward dihitung setiap detik<br>4. Setiap 1 menit, hasil validasi terkonfirmasi ke saldo Reward Validasi<br><br><strong>⏰ Aturan Penting:</strong><br>• Tekan Power On pada <strong>06:01 UTC</strong> setiap hari<br>• Jika terlambat, AccessKey dianggap tidak aktif selama periode keterlambatan<br>• Anda kehilangan reward sebesar durasi keterlambatan<br>• Timer 40.000.000 detik tetap berjalan meski terlambat' },
+  { keywords: ['durasi access key', 'masa berlaku', '40 juta detik', 'timer access key'], question: 'Berapa lama masa berlaku Access Key?', answer: 'Access Key memiliki durasi <strong>40.000.000 detik</strong> (sekitar <strong>463 hari</strong> atau ±15 bulan) sejak momen redeem/aktivasi.<br><br><strong>⏱️ Detail:</strong><br>• Timer mulai berjalan saat redeem berhasil<br>• Timer tetap berjalan meski Anda terlambat Power On<br>• Keterlambatan Power On mengurangi reward dan waktu efektif<br>• Setelah 40.000.000 detik, Access Key berakhir<br><br><strong>💡 Catatan:</strong> Parameter ini dapat berubah sesuai kebijakan final proyek.' },
+  { keywords: ['bagaimana reward bekerja', 'cara dapat reward', 'reward validasi', 'sistem reward', 'mekanisme reward'], question: 'Bagaimana sistem reward BossX bekerja?', answer: 'Sistem reward BossX menggunakan mekanisme <strong>akumulasi kontinu per detik</strong>:<br><br><strong>📊 Base Reward:</strong><br>• <strong>10% per bulan</strong> dari nilai pembelian Access Key (A)<br>• Tanpa pengembalian modal (principal)<br>• Dihitung sebagai akumulasi per detik<br><br><strong>⚙️ Cara Kerja:</strong><br>1. Access Key aktif + Power On → validasi berjalan<br>2. Reward dihitung setiap detik<br>3. Setiap 1 menit → Auto-Validation Claim ke saldo Reward Validasi<br>4. Reward terakumulasi sampai di-claim/withdraw<br><br><strong>💰 Contoh:</strong><br>• Access Key senilai 1.000 BOSSX<br>• Base reward bulanan: 100 BOSSX<br>• Rate per detik: ≈ 0.00003858 BOSSX/detik<br>• Jika bulan 30 hari (2.592.000 detik)' },
+  { keywords: ['auto claim', 'auto validation', 'klaim otomatis', '1 menit'], question: 'Apa itu Auto-Validation Claim?', answer: '<strong>Auto-Validation Claim</strong> adalah proses otomatis yang terjadi setiap <strong>1 menit</strong>:<br><br><strong>🔄 Proses:</strong><br>1. Selama validasi running, reward dihitung per detik<br>2. Setiap 1 menit, sistem mengkonsolidasikan hasil perhitungan<br>3. Hasil dikonfirmasi ke saldo <strong>Reward Validasi</strong> di dalam platform<br>4. Jika ada pembulatan, sisa pecahan dibawa ke menit berikutnya<br><br><strong>⚠️ PENTING:</strong><br>• Auto-claim per 1 menit adalah <strong>pencatatan saldo di dalam platform</strong><br>• BUKAN transfer on-chain setiap menit<br>• Transfer on-chain hanya terjadi saat claim/withdraw<br>• Ini untuk efisiensi biaya transaksi' },
+  { keywords: ['checkpoint', '06:00 utc', 'berhenti harian', 'auto stop'], question: 'Mengapa validasi berhenti jam 06:00 UTC?', answer: 'Validasi/reward berhenti setiap hari pada <strong>06:00 UTC</strong> untuk proses <strong>checkpoint</strong>.<br><br><strong>🎯 Tujuan Checkpoint:</strong><br>• Sinkronisasi data<br>• Validasi status AccessKey<br>• Mitigasi penyalahgunaan (anti-abuse)<br>• Pembaruan parameter jika diperlukan<br><br><strong>⏰ Aturan:</strong><br>• Validasi berhenti: 06:00 UTC<br>• Power On kembali: <strong>06:01 UTC</strong><br>• Jika terlambat Power On, kehilangan reward selama durasi keterlambatan<br><br><strong>💡 Rekomendasi:</strong> Set alarm/pengingat untuk Power On tepat waktu!' },
+  { keywords: ['dari mana reward', 'sumber reward', 'reward pool', '99 juta'], question: 'Dari mana reward BossX berasal?', answer: 'Reward BossX berasal dari <strong>Reward Pool</strong> sebesar <strong>99.000.000 BOSSX</strong> (99% dari total supply).<br><br><strong>📦 Detail Reward Pool:</strong><br>• Total Supply: 100.000.000 BOSSX<br>• Genesis Mint (sudah beredar): 1.000.000 BOSSX (1%)<br>• Reward Pool (belum beredar): 99.000.000 BOSSX (99%)<br><br><strong>🔄 Mekanisme Emisi:</strong><br>• Token dilepas <strong>bertahap</strong> mengikuti reward yang terbentuk dari validasi pengguna aktif<br>• Tidak ada tanggal pasti kapan 99 juta BOSSX habis<br>• Kecepatan distribusi bergantung pada: jumlah AccessKey eligible, nilai pembelian, kedisiplinan Power On, kebijakan proyek<br><br><strong>💡 Catatan:</strong> "Per detik" mengacu pada perhitungan akumulasi, bukan transfer on-chain per detik.' },
+  { keywords: ['klaim reward', 'cara claim', 'withdraw reward', 'tarik reward'], question: 'Bagaimana cara claim reward?', answer: 'Ada beberapa cara untuk mengklaim reward:<br><br><strong>1. Auto-Validation Claim (Otomatis):</strong><br>• Terjadi setiap 1 menit<br>• Masuk ke saldo Reward Validasi di platform<br><br><strong>2. Internal Market:</strong><br>• Jual reward BOSSX di Internal Market<br>• Dapat USDT atau BOSSX lain<br><br><strong>3. Withdraw ke Wallet On-chain:</strong><br>• Buka menu Withdrawal<br>• Masukkan alamat wallet TRC20<br>• Token berpindah ke wallet pribadi Anda<br><br><strong>⚠️ Catatan:</strong><br>• Batas minimum interval withdraw (mis. 1x per hari)<br>• Fee withdraw kecil untuk treasury<br>• Periksa alamat wallet sebelum konfirmasi!' },
+  { keywords: ['tokenomics', 'alokasi token', 'distribusi token', 'supply bossx'], question: 'Bagaimana tokenomics BossX?', answer: '<strong>📊 Total Supply: 100.000.000 BOSSX</strong><br><br><strong>A. Genesis Mint (1%) - 1.000.000 BOSSX:</strong><br>• Liquidity Bootstrap: 250.000 (0.25%) - Lock 6-12 bulan<br>• Treasury Operasional: 200.000 (0.20%) - Vesting 12 bulan<br>• Development & Security: 200.000 (0.20%) - Vesting 18-24 bulan<br>• Team Allocation: 200.000 (0.20%) - Cliff 6 bulan + vesting 36 bulan<br>• Marketing & Community: 100.000 (0.10%) - Release bertahap 6-12 bulan<br>• Advisors/Partners: 50.000 (0.05%) - Cliff 3 bulan + vesting 12 bulan<br><br><strong>B. Reward Pool (99%) - 99.000.000 BOSSX:</strong><br>• AccessKey Base Reward Emission<br>• Emisi dinamis sesuai parameter AccessKey<br><br><strong>💎 Prinsip:</strong> Fairness, kontrol emisi, keberlanjutan jangka panjang.' },
+  { keywords: ['alokasi dana', 'flow dana', 'pembelian access key', 'dana pembelian'], question: 'Ke mana dana pembelian Access Key dialokasikan?', answer: 'Dana dari pembelian Access Key dialokasikan untuk mendukung keberlanjutan ekosistem:<br><br><strong>💰 Alokasi Dana Pembelian Access Key:</strong><br><br>• <strong>50% - Trading Bot:</strong><br>  Modal dikelola robot trading. Profit dapat dibagikan sebagai bonus variabel.<br><br>• <strong>25% - Liquidity:</strong><br>  Menambah liquidity BOSSX untuk stabilitas pasar.<br><br>• <strong>5% - Charity:</strong><br>  Program sosial dengan transparansi & laporan.<br><br>• <strong>20% - Dev/Ops:</strong><br>  Pengembangan, operasional, audit, dan kebutuhan proyek.<br><br><strong>💡 Catatan:</strong> Selain base reward dari reward pool, alokasi ini menambah pilar keberlanjutan ekosistem.' },
+  { keywords: ['vesting', 'lock up', 'kapan token cair', 'tim vesting'], question: 'Bagaimana sistem vesting dan lock-up?', answer: 'Untuk menjaga kepercayaan publik dan mengurangi risiko tekanan jual, setiap kategori Genesis Mint mengikuti aturan vesting/lock-up:<br><br><strong>🔒 Vesting Schedule:</strong><br><br>• <strong>Liquidity Bootstrap:</strong> Lock minimum 6-12 bulan<br>• <strong>Treasury Operasional:</strong> Vesting linear 12 bulan<br>• <strong>Development & Security:</strong> Vesting linear 18-24 bulan<br>• <strong>Team Allocation:</strong> Cliff 6 bulan + vesting linear 36 bulan<br>• <strong>Marketing & Community:</strong> Release bertahap 6-12 bulan<br>• <strong>Advisors/Partners:</strong> Cliff 3 bulan + vesting linear 12 bulan<br><br><strong>💎 Tujuan:</strong> Memastikan insentif tim selaras dengan eksekusi jangka panjang dan mencegah pelepasan token dalam waktu singkat.' },
+  { keywords: ['internal market', 'marketplace', 'tempat trading', 'jual beli bossx'], question: 'Apa itu Internal Market?', answer: '<strong>Internal Market</strong> adalah modul perdagangan internal untuk memfasilitasi transaksi jual-beli aset di dalam ekosistem BossX.<br><br><strong>📊 Fase Awal:</strong><br>• Pair: <strong>BOSSX/USDT</strong> (satu-satunya pair)<br>• Maker fee: 0.5% per transaksi<br>• Taker fee: 0.5% per transaksi<br>• Fee dipotong dari aset yang diterima<br>• Alokasi fee: ke treasury proyek<br><br><strong>✨ Fitur:</strong><br>• Order book real-time<br>• Chart harga (TradingView untuk pair eksternal)<br>• History transaksi lengkap<br>• Terintegrasi dengan wallet BossX<br><br><strong>💡 Catatan:</strong> Pembatasan pair dilakukan untuk menjaga fokus pengembangan dan kontrol risiko di tahap awal.' },
+  { keywords: ['p2p', 'peer to peer', 'transfer bossx', 'kirim ke teman'], question: 'Bagaimana cara transfer P2P?', answer: 'Fitur <strong>Peer to Peer (P2P)</strong> memungkinkan transfer BOSSX antar sesama pengguna di dalam platform.<br><br><strong>📤 Cara Transfer:</strong><br>1. Buka menu "Peer to Peer"<br>2. Masukkan username penerima (format: @username)<br>3. Masukkan jumlah BOSSX (minimal 1 BOSSX)<br>4. Klik "Kirim BossX"<br><br><strong>✅ Fitur:</strong><br>• Transfer instan antar user BossX<br>• <strong>Gratis</strong> (no transfer fee) di fase awal<br>• History transfer tercatat lengkap<br>• Statistik total dikirim & diterima<br><br><strong>⚠️ Pengendalian Risiko:</strong><br>• Batas nominal/limit harian<br>• Verifikasi akun (bila diperlukan)<br>• Pemantauan pola transaksi tidak wajar' },
+  { keywords: ['socialfi', 'sosial', 'media sosial', 'fitur sosial', 'bossx social'], question: 'Apa itu SocialFi BossX?', answer: '<strong>SocialFi BossX</strong> adalah platform sosial eksklusif untuk holder token BossX, berfungsi sebagai ruang komunitas dan diskusi.<br><br><strong>💎 Akses Berlangganan:</strong><br>• User aktif ekosistem BossX: <strong>$1/bulan</strong><br>• Non-user aktif: <strong>$25/bulan</strong><br><br><strong>✨ Fitur Utama:</strong><br>• Posting konten (teks, gambar, video)<br>• Like & komentar<br>• Gift Emoji (menggunakan BOSSX)<br>• Feed komunitas yang aktif<br><br><strong>⚠️ Fase Awal:</strong><br>• TIDAK ADA reward untuk posting/like/komentar<br>• Fokus: membangun komunitas sehat & diskusi relevan<br>• Moderasi ketat untuk anti-spam<br><br><strong>📍 Lokasi:</strong> Menu "SocialFi" di sidebar' },
+  { keywords: ['7 program', 'program bossx', 'tap to earn', 'share to earn', 'play to earn'], question: 'Apa saja 7 program terbaik BossX?', answer: 'BossX memiliki <strong>7 Program Utama</strong>:<br><br><strong>1. Tap-to-Earn:</strong> Aktivitas dalam aplikasi untuk meningkatkan engagement<br><strong>2. Share-to-Earn (Affiliate):</strong> Program referral untuk pertumbuhan komunitas<br><strong>3. Play-to-Earn:</strong> Game/NFT/metaverse (draft)<br><strong>4. Internal Market:</strong> Tempat transaksi jual-beli BOSSX + P2P<br><strong>5. Cryptocurrency:</strong> Ekosistem aset BOSSX Token + BOSSX Point<br><strong>6. AI (Artificial Intelligence):</strong> Fitur berbasis AI untuk edukasi & otomasi<br><strong>7. BOSSX Hot Wallet:</strong> Dompet internal/eksternal untuk transaksi harian<br><br><strong>💡 Catatan:</strong> Program-program ini dirancang untuk mendorong utilitas token di luar spekulasi.' },
+  { keywords: ['referral', 'kode referral', 'ajak teman', 'komisi referral', 'bonus referral'], question: 'Bagaimana sistem referral BossX?', answer: 'Program <strong>Referral BossX</strong> memungkinkan Anda mendapatkan bonus dengan mengajak pengguna lain bergabung.<br><br><strong>🎯 Cara Kerja:</strong><br>1. Dapatkan kode referral unik Anda<br>2. Bagikan kode ke teman/komunitas<br>3. Teman daftar menggunakan link/kode referral Anda<br>4. Teman membeli Access Key<br>5. Anda mendapat bonus referral!<br><br><strong>💰 Bonus Referral:</strong><br>• Besaran: <strong>5%</strong> dari jumlah pembelian Access Key<br>• Mata uang: dibayar dalam <strong>BOSSX</strong><br>• Pembelian berulang: tetap mendapat 5% bonus<br><br><strong>⚠️ Ketentuan:</strong><br>• Bonus hanya diberikan jika referred user membeli Access Key<br>• Platform dapat menerapkan pencegahan multi-akun & anti-penyalahgunaan' },
+  { keywords: ['cara deposit', 'deposit bagaimana', 'deposit usdt', 'deposit bossx', 'cara top up'], question: 'Bagaimana cara deposit?', answer: 'Untuk melakukan deposit ke akun BossX:<br><br><strong>1.</strong> Buka menu <strong>"Deposit"</strong> di sidebar<br><strong>2.</strong> Pilih currency: <strong>USDT</strong> atau <strong>BOSSX</strong><br><strong>3.</strong> Copy alamat wallet yang ditampilkan<br><strong>4.</strong> Kirim crypto dari wallet eksternal Anda<br><br><strong>⚠️ Penting:</strong><br>• USDT: Network <strong>TRC20 (TRON)</strong>, minimal deposit <strong>10 USDT</strong><br>• BOSSX: Network internal, minimal deposit <strong>1 BOSSX</strong><br>• Deposit dikonfirmasi setelah 1 konfirmasi network<br>• Pastikan alamat wallet benar sebelum kirim!<br><br><strong>💡 Tips:</strong> Gunakan QR Code untuk kemudahan.' },
+  { keywords: ['cara withdrawal', 'withdrawal bagaimana', 'tarik dana', 'withdraw usdt', 'withdraw bossx'], question: 'Bagaimana cara withdrawal?', answer: 'Untuk menarik dana dari akun BossX:<br><br><strong>1.</strong> Buka menu <strong>"Withdrawal"</strong><br><strong>2.</strong> Pilih currency (USDT/BOSSX)<br><strong>3.</strong> Pilih network:<br>  • USDT: <strong>TRC20</strong> atau <strong>BEP20</strong><br>  • BOSSX: <strong>TRC20</strong><br><strong>4.</strong> Masukkan alamat wallet tujuan<br><strong>5.</strong> Masukkan jumlah withdrawal<br><strong>6.</strong> Klik "Submit Withdrawal"<br><br><strong>💰 Fee & Minimal:</strong><br>• USDT: Fee <strong>1 USDT</strong>, minimal <strong>10 USDT</strong><br>• BOSSX: Fee <strong>0.1 BOSSX</strong>, minimal <strong>1 BOSSX</strong><br><br><strong>⏱️ Proses:</strong> 1-24 jam setelah submit<br><br><strong>⚠️ Perhatian:</strong> Periksa kembali alamat tujuan sebelum konfirmasi!' },
+  { keywords: ['team developer', 'siapa team', 'tim developer', 'founder', 'ceo bossx', 'tim bossx'], question: 'Siapa team developer BossX?', answer: 'Tim di balik BossX Crypto Exchange Platform:<br><br><strong>👑 Fery Muliawan</strong> — CEO (Chief Executive Officer)<br>Pendiri dan visioner BossX<br><br><strong>💰 Mr.Ramadhan</strong> — CFO (Chief Financial Officer)<br>Mengawasi operasi harian & keuangan<br><br><strong>📊 Michael Johnson</strong> — Manager<br>Mengatur tim operasional<br><br><strong>💻 Lee</strong> — CTO (Chief Technology Officer)<br>Infrastruktur teknis & keamanan<br><br><strong>📝 Emily Brown</strong> — Secretary<br>Administrasi & komunikasi<br><br><strong>💡 Visi Tim:</strong> Membangun ekosistem crypto yang transparan, terukur, dan berkelanjutan.' },
+  { keywords: ['roadmap', 'rencana pengembangan', 'milestone', 'timeline bossx'], question: 'Bagaimana roadmap BossX?', answer: '<strong>🗺️ Roadmap BossX:</strong><br><br><strong>Q1 2025:</strong> Konsep proyek, Whitepaper v1.0, kanal sosial<br><strong>Q2 2025:</strong> Pengembangan token TRC20, modul AccessKey, website beta<br><strong>Q3 2025:</strong> Beta app, internal market, explorer & hot wallet<br><strong>Q4 2025:</strong> Growth, audit CertiK, listing agregator (CMC/CoinGecko)<br><strong>Q1 2026:</strong> Finalisasi Whitepaper v2.0, testnet publik, desain multi-chain<br><strong>Q2 2026:</strong> Launch mainnet, listing DEX SunSwap, program utama<br><strong>Q4 2026:</strong> Scale, audit lanjutan, listing CEX preparation<br><strong>Q2 2027:</strong> Compliance, listing CEX tier 1/tier 2<br><strong>Q3-Q4 2027:</strong> Product expansion, ekspansi global<br><br><strong>💡 Catatan:</strong> Roadmap dapat berubah sesuai perkembangan proyek.' },
+  { keywords: ['keamanan', 'risiko', 'mitigasi', 'aman tidak', 'audit'], question: 'Bagaimana keamanan dan mitigasi risiko BossX?', answer: '<strong>🔒 Risiko Utama:</strong><br>1. Risiko ekonomi: emisi terlalu tinggi → inflasi<br>2. Risiko konsentrasi: whale membeli banyak AccessKey<br>3. Risiko manipulasi: redeem/power-on/claim disalahgunakan<br>4. Risiko smart contract: bug pada modul reward/registry<br>5. Risiko legal/regulasi: program reward bisa ditafsir sebagai produk investasi<br><br><strong>🛡️ Mitigasi:</strong><br>• Jadwal emisi menurun (decay/halving)<br>• Limit AccessKey per wallet / tier dengan kurva biaya<br>• Audit smart contract & bug bounty<br>• Pemisahan treasury + multi-sig<br>• Publikasi parameter emisi + changelog<br>• Dashboard publik: total AccessKey aktif, emisi harian, total reward<br><br><strong>💡 Transparansi:</strong> Audit sebelum rilis dan audit ulang setelah perubahan besar.' },
+  { keywords: ['verifikasi kepemilikan', 'hybrid verification', 'sts standard'], question: 'Bagaimana verifikasi kepemilikan Access Key?', answer: 'Verifikasi kepemilikan Access Key dilakukan secara <strong>hybrid</strong> untuk menjaga integritas sistem:<br><br><strong>🔐 3 Lapis Verifikasi:</strong><br><br><strong>1. Validasi kode AccessKey saat redeem:</strong><br>• Kode valid, sesuai format/aturan<br>• Belum pernah digunakan<br><br><strong>2. Pembuktian kontrol wallet:</strong><br>• Tanda tangan (signature) atas pesan redeem<br>• Kombinasi: hash AccessKey + alamat wallet + nonce<br>• Hanya pemilik wallet sah yang bisa aktivasi<br><br><strong>3. Auditability:</strong><br>• Publikasi hash/Merkle root harian<br>• Data ringkas (agregat AccessKey aktif, aktivitas klaim)<br>• Untuk audit tanpa membuka detail kode AccessKey<br><br><strong>💡 Standar:</strong> Mengadopsi prinsip <strong>STS (Standard Transfer Specification)</strong> - standar internasional terbuka.' },
+  { keywords: ['governance', 'tata kelola', 'keputusan', 'perubahan parameter'], question: 'Bagaimana governance BossX?', answer: '<strong>🏛️ Governance BossX:</strong><br><br><strong>Fase Awal:</strong><br>• Terpusat (tim developer)<br>• Transparansi penuh<br>• Pengumuman perubahan parameter<br><br><strong>Fase Lanjut:</strong><br>• Multi-sig komunitas<br>• Voting (bila dipilih)<br><br><strong>📋 Contoh Kebijakan:</strong><br>• Perubahan emisi maksimal 1x per bulan<br>• Pengumuman minimal 7 hari sebelum perubahan<br>• Perubahan fee internal market dibatasi rentang tertentu<br>• Setiap perubahan besar disertai laporan dampak (simulasi)<br><br><strong>💡 Prinsip:</strong> Keputusan transparan, terukur, dan dapat dipertanggungjawabkan.' },
+  { keywords: ['apakah reward transfer setiap detik', 'reward per detik', 'transfer on chain'], question: 'Apakah reward ditransfer setiap detik?', answer: '<strong>TIDAK.</strong> Transfer on-chain setiap detik tidak efisien.<br><br><strong>✅ Yang terjadi setiap detik:</strong><br>• Perhitungan akumulasi reward<br>• Pencatatan di dalam sistem platform<br><br><strong>✅ Kapan token berpindah?</strong><br>• Saat klaim/withdraw<br>• Nilainya dihitung berdasarkan durasi (detik) yang telah berlalu<br><br><strong>💡 Analogi:</strong> Seperti tabungan bank yang menghitung bunga per detik, tetapi penarikan dilakukan saat Anda butuh.<br><br><strong>⚙️ Auto-Validation Claim:</strong><br>• Setiap 1 menit → konsolidasi ke saldo Reward Validasi<br>• Ini pencatatan internal, bukan transfer on-chain' },
+  { keywords: ['apakah bossx mining', 'mining bossx', 'staking bossx'], question: 'Apakah BossX menggunakan mining atau staking?', answer: '<strong>BUKAN mining tradisional dan BUKAN staking pasif konvensional.</strong><br><br><strong>❌ BossX BUKAN:</strong><br>• Mining tradisional (butuh GPU/ASIC, listrik)<br>• Validator TRON<br>• Staking pasif yang kurang intuitif<br><br><strong>✅ BossX ADALAH:</strong><br>• Mekanisme <strong>rule-based emissions</strong><br>• Distribusi reward berbasis aturan<br>• Lebih mudah diakses (tanpa hardware/listrik)<br>• Lebih terukur & transparan<br><br><strong>💡 Konsep:</strong><br>• Beli token → Beli AccessKey → Redeem → Power On → Akumulasi → Claim/Withdraw<br>• Alur yang jelas dan dapat dipantau<br>• Reward dihitung sebagai akumulasi kontinu per detik' },
+  { keywords: ['login', 'cara login', 'masuk akun', 'akun demo', 'password'], question: 'Bagaimana cara login?', answer: 'Untuk login ke BossX Masternode:<br><br><strong>🔐 Demo Credentials:</strong><br>• Username: <code>admin</code><br>• Password: <code>admin123</code><br><br><strong>📝 Langkah:</strong><br>1. Buka halaman login BossX<br>2. Masukkan username & password<br>3. Klik "Masuk"<br>4. Anda akan diarahkan ke Dashboard<br><br><strong>💾 Session:</strong> Login tersimpan di browser (localStorage), jadi Anda tidak perlu login ulang setiap kali membuka website.<br><br><strong>⚠️ Keamanan:</strong> Jangan bagikan kredensial Anda ke siapapun!' },
+  { keywords: ['disclaimer', 'penafian', 'nasihat investasi', 'risiko kripto'], question: 'Apa disclaimer BossX?', answer: '<strong>⚠️ DISCLAIMER PENTING:</strong><br><br>Dokumen whitepaper BossX <strong>BUKAN</strong> nasihat investasi, hukum, atau pajak. Semua informasi disediakan untuk tujuan edukasi dan diskusi.<br><br><strong>🔴 Risiko Kripto:</strong><br>• Cryptocurrency memiliki risiko tinggi<br>• Harga dapat berfluktuasi drastis<br>• Parameter tokenomics dapat berubah<br>• Lakukan riset mandiri (DYOR)<br>• Konsultasi profesional sebelum mengambil keputusan<br><br><strong>💡 Prinsip:</strong><br>• Investasikan hanya uang yang siap Anda risikokan<br>• Pahami mekanisme sebelum berpartisipasi<br>• Jangan FOMO (Fear Of Missing Out)<br><br><strong>📧 Kontak:</strong> admin@bossx.io untuk pertanyaan lebih lanjut.' },
+  { keywords: ['tier access key', 'basic pro elite', 'bobot access key'], question: 'Apakah ada tier Access Key?', answer: '<strong>Ya (Opsional/Rencana):</strong> Access Key dapat memiliki tier dengan bobot berbeda untuk mencegah konsentrasi kepemilikan dan emisi tidak terkendali.<br><br><strong>📊 Contoh Ilustrasi (bukan final):</strong><br>• <strong>AccessKey Basic:</strong> bobot 1x<br>• <strong>AccessKey Pro:</strong> bobot 3x<br>• <strong>AccessKey Elite:</strong> bobot 8x<br><br><strong>💡 Cara Kerja:</strong><br>• Pembagian reward tetap proporsional terhadap kontribusi (harga/tier)<br>• Tidak mengubah emisi total<br>• Perlu dipadukan dengan batas supply AccessKey<br><br><strong>⚠️ Catatan:</strong> Desain tier masih dalam tahap perencanaan dan dapat berubah sesuai kebijakan final proyek.' },
+  { keywords: ['trading bot', 'robot trading', 'bonus trading', 'profit bot'], question: 'Apa itu Trading Bot BossX?', answer: '<strong>Trading Bot</strong> adalah salah satu pilar keberlanjutan ekosistem BossX.<br><br><strong>🤖 Konsep:</strong><br>• 50% dana pembelian Access Key dialokasikan untuk modal trading bot<br>• Bot dikelola secara profesional<br>• Profit dari trading dapat dibagikan sebagai <strong>bonus variabel</strong> kepada pengguna<br><br><strong>💰 Sumber Insentif:</strong><br>1. <strong>Base reward</strong> dari reward pool (emisi token)<br>2. <strong>Bonus variabel</strong> dari profit robot trading (non-emisi)<br><br><strong>📊 Transparansi:</strong><br>• Laporan profit/loss trading bot akan dipublikasikan<br>• Skema pembagian bonus sesuai kebijakan proyek<br><br><strong>💡 Tujuan:</strong> Mengurangi tekanan jual dan meningkatkan daya tahan ekonomi ekosistem.' },
+  { keywords: ['charity', 'amal', 'program sosial', 'donasi'], question: 'Apakah BossX memiliki program charity?', answer: '<strong>Ya!</strong> BossX mengalokasikan <strong>5%</strong> dari dana pembelian Access Key untuk program charity.<br><br><strong>💝 Program Charity:</strong><br>• Alokasi: 5% dari dana pembelian Access Key<br>• Fokus: Program sosial<br>• Transparansi: Laporan penggunaan dana dipublikasikan<br><br><strong>🎯 Visi:</strong><br>• Memberikan dampak positif bagi masyarakat<br>• Membangun ekosistem yang tidak hanya profit-oriented<br>• Kontribusi nyata untuk komunitas<br><br><strong>💡 Catatan:</strong> Detail program charity akan diumumkan melalui kanal resmi BossX.' },
+  { keywords: ['multi chain', 'ekspansi', 'future plan', 'rencana masa depan'], question: 'Apakah BossX akan ekspansi ke blockchain lain?', answer: '<strong>Ya!</strong> BossX memiliki rencana ekspansi multi-chain.<br><br><strong>🗺️ Roadmap Ekspansi:</strong><br>• <strong>Q1 2026:</strong> Desain multi-chain<br>• <strong>Q4 2026:</strong> Ekspansi multi-chain<br>• <strong>Q3-Q4 2027:</strong> Ekspansi global ke market baru<br><br><strong>💡 Tujuan:</strong><br>• Meningkatkan aksesibilitas<br>• Diversifikasi risiko<br>• Memperluas ekosistem BossX<br>• Integrasi dengan blockchain populer lain<br><br><strong>⚠️ Catatan:</strong> Saat ini BossX masih fokus di jaringan TRON (TRC20). Ekspansi multi-chain akan diumumkan secara resmi.' }
 ];
 const BOSSX_AI_FALLBACK = 'Maaf, informasi yang Anda tanyakan <strong>belum tersedia di database saya</strong>. Saya dapat membantu menjawab pertanyaan seputar:<br><br>• Tentang BossX & jaringan TRON<br>• Access Key & Masternode<br>• Mekanisme Reward & Auto-Claim<br>• Tokenomics & Alokasi Dana<br>• Deposit & Withdrawal<br>• Internal Market, P2P, SocialFi<br>• Referral & 7 Program Utama<br>• Team Developer & Roadmap<br>• Keamanan, Governance, Charity<br><br>Silakan coba pertanyaan lain atau hubungi admin@bossx.io untuk bantuan lebih lanjut.';
 const BOSSX_AI_WELCOME = '🧊 Halo! Saya <strong>BossX AI AGENT</strong>, asisten virtual platform BossX. Saya siap menjawab pertanyaan seputar whitepaper BossX v1.6.<br><br>Silakan ketik pertanyaan Anda atau pilih <strong>quick reply</strong> di bawah untuk memulai!';
